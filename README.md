@@ -18,5 +18,33 @@
 - **Documentation:** Unit tests provide practical documentation of how parts of the system are intended to function, offering examples of usage and behavior.
 ### Conclusion:
 - Unit tests are not only about detecting errors but also about improving design, facilitating development, and ensuring system reliability. They also function as useful documentation for other developers.
-## Demo: Setting up JUnit 5 in an IDE
+## Demo: Setting up and Tearing Down Tests
+### Introduction to Test Setup and Teardown
+- Setting up and tearing down are processes done before and after tests run.
+- JUnit 5 supports these processes through specific lifecycle annotations.
+### Lifecycle Annotations Explained
+- @BeforeAll: Runs once before all test methods in the class. Must be static unless explicitly overridden.
+- @BeforeEach: Runs before each test method.
+- @AfterEach: Runs after each test method.
+- @AfterAll: Runs once after all test methods are completed. Like @BeforeAll, typically needs to be static.
+### Application Example: Patient Intake System
+- Discuss setup for a sample patient intake system using lifecycle annotations.
+### Implementation Details
+- Example method initAll() runs first, before all tests due to @BeforeAll.
+- init() method runs before each test method because of @BeforeEach annotation.
+- tearDown() method runs after each test method due to @AfterEach.
+- tearDownAll() method, annotated with @AfterAll, runs last after all tests are finished.
+### Practical Usage
+- Common usage is setting up before tests, such as initializing shared resources.
+- Example from ClinicCalendar test:
+  - Previously, each test method created a calendar instance.
+  - Moved calendar instantiation to a @BeforeEach method named init to avoid redundancy.
+  - Converted the calendar from a local variable in each test method to an instance field, accessible across all tests.
+### Enhancements for Visibility
+- Added print statements in each lifecycle method and test method to trace execution flow and order in the console.
+### Considerations for Further Lifecycle Methods
+- Although not required for the calendar test scenario, additional lifecycle methods (@BeforeAll, @AfterEach, and @AfterAll) were implemented to demonstrate their use.
+- Mentioned the aesthetic preference for placing teardown methods at the bottom of the class but noted it's not necessary.
+### Final Testing and Observations
+- Executed tests to confirm the proper order of lifecycle methods and ensure the setup and teardown processes were correctly implemented.
 

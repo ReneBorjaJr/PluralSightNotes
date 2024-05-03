@@ -18,3 +18,5 @@
 - **Documentation:** Unit tests provide practical documentation of how parts of the system are intended to function, offering examples of usage and behavior.
 ### Conclusion:
 - Unit tests are not only about detecting errors but also about improving design, facilitating development, and ensuring system reliability. They also function as useful documentation for other developers.
+## Demo: Setting up JUnit 5 in an IDE
+

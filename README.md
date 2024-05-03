@@ -23,10 +23,10 @@
 - Setting up and tearing down are processes done before and after tests run.
 - JUnit 5 supports these processes through specific lifecycle annotations.
 ### Lifecycle Annotations Explained
-- @BeforeAll: Runs once before all test methods in the class. Must be static unless explicitly overridden.
-- @BeforeEach: Runs before each test method.
-- @AfterEach: Runs after each test method.
-- @AfterAll: Runs once after all test methods are completed. Like @BeforeAll, typically needs to be static.
+- **@BeforeAll:** Runs once before all test methods in the class. Must be static unless explicitly overridden.
+- **@BeforeEach:** Runs before each test method.
+- **@AfterEach:** Runs after each test method.
+- **@AfterAll:** Runs once after all test methods are completed. Like @BeforeAll, typically needs to be static.
 ### Application Example: Patient Intake System
 - Discuss setup for a sample patient intake system using lifecycle annotations.
 ### Implementation Details

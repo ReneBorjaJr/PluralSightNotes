@@ -1,5 +1,5 @@
 # Plural Sight Notes
-## The Benefits of Unit Testing
+## 1) The Benefits of Unit Testing
 ### Introduction to Unit Testing:
 - A unit test is a piece of code written to test small, individual components of a larger system, usually not the whole system at once.
 - The target code tested could be a Java class, a single method, or a static function.
@@ -18,7 +18,7 @@
 - **Documentation:** Unit tests provide practical documentation of how parts of the system are intended to function, offering examples of usage and behavior.
 ### Conclusion:
 - Unit tests are not only about detecting errors but also about improving design, facilitating development, and ensuring system reliability. They also function as useful documentation for other developers.
-## Applying Assertions
+## 7) Applying Assertions
 ### Initial Setup and Testing
 - Utilize **'assertNotNull'** and **'assertEquals'** for basic string comparisons in the initial test.
 - Confirm the working condition of the initial unit test.
@@ -45,7 +45,7 @@
 ### Conclusion and Next Steps
 - Summarize the new assertions and their utility in enhancing testing capabilities.
 - Highlight plans for further structuring tests, including setup and teardown processes.
-## Demo: Setting up and Tearing Down Tests
+## 8) Demo: Setting up and Tearing Down Tests
 ### Introduction to Test Setup and Teardown
 - Setting up and tearing down are processes done before and after tests run.
 - JUnit 5 supports these processes through specific lifecycle annotations.

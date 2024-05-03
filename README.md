@@ -18,6 +18,33 @@
 - **Documentation:** Unit tests provide practical documentation of how parts of the system are intended to function, offering examples of usage and behavior.
 ### Conclusion:
 - Unit tests are not only about detecting errors but also about improving design, facilitating development, and ensuring system reliability. They also function as useful documentation for other developers.
+## Applying Assertions
+### Initial Setup and Testing
+- Utilize **'assertNotNull'** and **'assertEquals'** for basic string comparisons in the initial test.
+- Confirm the working condition of the initial unit test.
+- Introduce an intentional failure by altering the expected first name to trigger an assertion failure.
+- Utilize IntelliJ's comparison tool to highlight differences in strings, particularly useful for differences involving whitespace.
+### Exploring Additional Assertions
+- Use **'assertSame'** to confirm that two variables refer to the exact same object in memory, useful for enums where instances are inherently unique.
+- Utilize **'assertNotSame'** to ensure that objects meant to be copies are not the same instance as the original.
+### Testing New Features
+- Focus on the ClinicCalendar class which includes a new hasAppointment method.
+  - Method checks if there are appointments on a specified day, returning true if appointments exist.
+- Create tests using assertTrue and assertFalse to verify the functionality of hasAppointment.
+### Testing Collection-Based Features
+- Demonstrate a new feature integrating today's appointments into the user interface.
+- Conduct manual testing by entering and verifying appointments for today and other days.
+- Implement JUnit tests to automatically verify today's appointments against manual entries.
+### Advanced Collection Assertions
+- Use **'assertEquals'** to compare expected appointments against all appointments, expected to fail when non-today appointments are included.
+- Apply **'assertIterableEquals'** for comparing collections of objects, ensuring both equivalence and order are correct.
+### Code Refactoring
+- Isolate and refactor date pattern conversion logic from the addAppointment method into a new method, convertToDateFromString.
+- Consider moving the new method to a utility class for broader use.
+- Re-run tests to ensure no functionality was broken during refactoring.
+### Conclusion and Next Steps
+- Summarize the new assertions and their utility in enhancing testing capabilities.
+- Highlight plans for further structuring tests, including setup and teardown processes.
 ## Demo: Setting up and Tearing Down Tests
 ### Introduction to Test Setup and Teardown
 - Setting up and tearing down are processes done before and after tests run.

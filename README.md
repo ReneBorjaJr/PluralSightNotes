@@ -39,7 +39,7 @@
 - Test methods are annotated with **@Test**, indicating their role in the testing framework.
 ### Additional Resources
 1. JUnit 5 Official Documentation
-- Visit the JUnit 5 website at (junit.org/junit5) for comprehensive guides and documentation.
+- Visit the JUnit 5 website at [JUnit](junit.org/junit5) for comprehensive guides and documentation.
 - Explore sections on IDE support and the Console Launcher for alternative ways to run JUnit tests.
 2. Maven Central
 - JUnit JARs can be downloaded from Maven Central at mvnrepository.com under the artifact org.junit.

@@ -18,6 +18,25 @@
 - **Documentation:** Unit tests provide practical documentation of how parts of the system are intended to function, offering examples of usage and behavior.
 ### Conclusion:
 - Unit tests are not only about detecting errors but also about improving design, facilitating development, and ensuring system reliability. They also function as useful documentation for other developers.
+## 2) Demo: Setting up JUnit 5 in an IDE
+### IntelliJ Setup for JUnit 5
+1. Project Requirements
+  - Ensure the project is set up with at least Java 8 as JUnit 5 requires Java 8 or newer.
+2. Open Module Settings
+  - Navigate to the module settings to confirm the project's language level is set to Java 8.
+  -Verify that separate directories for application code (src) and test code (test) are set up.
+3. Adding JUnit 5 Dependency
+  - Go to the Dependencies tab in module settings to manage third-party libraries (JAR files).
+  - Instead of manually adding JAR files, use IntelliJ's integrated feature by attempting to write a test.
+  - When prompted to create a test class for a production class without existing tests, choose to create one.
+  - IntelliJ will automatically detect the absence of JUnit 5 in the module dependencies and offer to fix it.
+  - Select "Fix," and IntelliJ will search Maven Central for JUnit 5 JARs.
+  - Choose the desired version of JUnit and confirm to add it to the project's dependencies.
+4. Verification
+  - Confirm the addition of necessary JUnit 5 JAR files in the project dependencies.
+  - A test class is automatically created, ready for writing tests.
+### Test Setup and Annotation:
+- Test methods are annotated with **@Test**, indicating their role in the testing framework.
 ## 7) Applying Assertions
 ### Initial Setup and Testing
 - Utilize **'assertNotNull'** and **'assertEquals'** for basic string comparisons in the initial test.

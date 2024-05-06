@@ -43,7 +43,53 @@
 - Explore sections on IDE support and the Console Launcher for alternative ways to run JUnit tests.
 2. Maven Central
 - JUnit JARs can be downloaded from Maven Central at [mvnrepository.com](mvnrepository.com) under the artifact **'org.junit'**.
-## 7) Applying Assertions
+## 3) Your Sample System
+### No notes for this
+## 4) Demo: Writing Your First JUnit 5 Test
+### Steps to Create the Test
+1. **Integration of JUnit 5:**
+- Verify JUnit 5 is included in the project dependencies.
+2. **Creating a Test Class in IntelliJ:**
+- Use IntelliJ's testing feature to automatically generate a test class for the targeted business logic class.
+3. **Annotating Test Methods:**
+- Mark methods with the **'@Test'** annotation to designate them as test methods.
+4. **Structure of a Test Method:**
+- **Instantiate necessary classes:** Begin by creating instances of the class under test.
+- **Perform actions:** Use methods of the class to simulate typical usage scenarios.
+- **Retrieve and store results:** Capture outputs or changes in state resulting from the above actions.
+5. **Assertions to Verify Outcomes:**
+- **Check for non-null values:** Ensure important objects or results are not null using assertNotNull.
+- **Validate expected results:** Use **'assertEquals'** to compare expected outcomes with actual results.
+### Understanding Annotations
+- **Purpose of Annotations:** Provide metadata about the methods; they don't change execution flow but guide the testing framework.
+### General Testing Pattern
+- **Setup:** Prepare any necessary objects and state before the main actions.
+- **Execute:** Run the functions or methods that are the focus of the test.
+- **Verify:** Apply assertions to confirm that the outcome matches expectations.
+### Execution and Review
+- **Run the Test:** Execute the test using IntelliJ's built-in test running capabilities to check for passes or failures.
+- **Evaluate Results:** Analyze the outcomes and refine the tests or the underlying code as necessary.
+## 5) Demo: Executing Your Test and Interpreting Results
+### Introduction to Test Execution and Initial Run
+- Initiate the test execution through the IDE by using the context menu on the test method.
+- A results panel will display with a list of executed tests and console outputs, showing whether the tests passed or failed.
+### Expanding the Test
+- Incorporate additional assertions to confirm the consistency and correctness of the data.
+- Utilize appropriate data formatting tools to validate data formats.
+- Adjust the access level of the test method as necessary based on its package alignment with the class being tested.
+### Observing Test Success
+- Re-run the test after enhancing it with new assertions to verify continued success.
+### Introducing a Test Failure
+- Modify the test by removing or altering a critical operation to simulate a test failure.
+### Benefits of Early Problem Detection Through Unit Tests
+- unit tests can identify issues early, reducing the need for more time-consuming troubleshooting methods.
+### Immediate Feedback from Unit Tests
+- Unit tests provide rapid feedback through error messages and stack traces, allowing for quick navigation to problem areas.
+### Efficient Problem Resolution
+- Make iterative adjustments directly in the test code to quickly verify fixes without extensive manual testing.
+### Future Improvements to the Test
+- Plan to revisit and refine the test to ensure thorough coverage and robustness.
+## 6) Applying Assertions
 ### Initial Setup and Testing
 - Utilize **'assertNotNull'** and **'assertEquals'** for basic string comparisons in the initial test.
 - Confirm the working condition of the initial unit test.
@@ -70,7 +116,7 @@
 ### Conclusion and Next Steps
 - Summarize the new assertions and their utility in enhancing testing capabilities.
 - Highlight plans for further structuring tests, including setup and teardown processes.
-## 8) Demo: Setting up and Tearing Down Tests
+## 7) Demo: Setting up and Tearing Down Tests
 ### Introduction to Test Setup and Teardown
 - Setting up and tearing down are processes done before and after tests run.
 - JUnit 5 supports these processes through specific lifecycle annotations.

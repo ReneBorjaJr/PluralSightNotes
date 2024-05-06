@@ -92,48 +92,49 @@
 
 ## 6) Applying Assertions
 
-## Assertions Used
+### Assertions Used
 - **assertNotNull and assertEquals**: Used for basic value comparisons.
 - **assertSame and assertNotSame**: Checks if two references point to the same or different objects, ideal for validating instance uniqueness.
 - **assertTrue and assertFalse**: Used for validating boolean conditions.
 
-## Testing Features
+### Testing Features
 - **Feature Testing**: Involves testing methods that check for specific conditions, such as the presence of scheduled appointments.
 
-## Assertion Techniques
+### Assertion Techniques
 - **assertEquals on Collections**: Used for comparing two collections to see if they contain equivalent elements in the same order.
 - **assertIterableEquals**: Compares the contents of different collection types that can be iterated over.
 
-## Workflow Enhancements
+### Workflow Enhancements
 - **Refactoring**: Focus on simplifying methods by extracting repetitive logic into separate methods for better maintainability and readability.
 
 ## 7) Demo: Setting up and Tearing Down Tests
-## Overview
+
+### Overview
 - JUnit 5 supports setting up and tearing down tests using lifecycle annotations.
 - These operations prepare the testing environment before tests run and clean up after tests.
 
-## Lifecycle Annotations
+### Lifecycle Annotations
 - **@BeforeAll**: Executes once before all test methods in the class; usually static.
 - **@BeforeEach**: Executes before each test method.
 - **@AfterEach**: Executes after each test method.
 - **@AfterAll**: Executes once after all test methods in the class have completed; usually static.
 
-## Usage Context
+### Usage Context
 - Lifecycle methods can be named arbitrarily as long as the correct annotations are used.
 - Commonly, setup activities are needed before test methods to initialize necessary objects or state.
 
-## Practical Application
+### Practical Application
 - For a patient intake system, repeated instantiation of objects like calendars can be moved from test methods to a setup method.
 - **@BeforeEach** can be used to initialize such objects, reducing redundancy across test methods.
 - Instance fields (e.g., a calendar object) should be used for objects needed across multiple test methods.
 - Cleanup and reset operations are vital for ensuring a clean state for each test, especially when tests have side effects (like altering a database).
 
-## Example Flow
+### Example Flow
 - Initialize global resources in a method annotated with **@BeforeAll**.
 - For each test, initialize specific resources with **@BeforeEach**, run the test, then clean up with **@AfterEach**.
 - After all tests, release global resources with **@AfterAll**.
 
-## Running Tests
+### Running Tests
 - Run tests to ensure that the setup and teardown processes do not interfere with the expected outcomes.
 - Utilize console outputs (e.g., `println`) in lifecycle methods to trace the execution flow during test runs.
 

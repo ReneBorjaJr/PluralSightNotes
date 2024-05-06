@@ -89,60 +89,55 @@
 - Make iterative adjustments directly in the test code to quickly verify fixes without extensive manual testing.
 ### Future Improvements to the Test
 - Plan to revisit and refine the test to ensure thorough coverage and robustness.
+
 ## 6) Applying Assertions
-### Initial Setup and Testing
-- Utilize **'assertNotNull'** and **'assertEquals'** for basic string comparisons in the initial test.
-- Confirm the working condition of the initial unit test.
-- Introduce an intentional failure by altering the expected first name to trigger an assertion failure.
-- Utilize IntelliJ's comparison tool to highlight differences in strings, particularly useful for differences involving whitespace.
-### Exploring Additional Assertions
-- Use **'assertSame'** to confirm that two variables refer to the exact same object in memory, useful for enums where instances are inherently unique.
-- Utilize **'assertNotSame'** to ensure that objects meant to be copies are not the same instance as the original.
-### Testing New Features
-- Focus on the ClinicCalendar class which includes a new hasAppointment method.
-  - Method checks if there are appointments on a specified day, returning true if appointments exist.
-- Create tests using assertTrue and assertFalse to verify the functionality of hasAppointment.
-### Testing Collection-Based Features
-- Demonstrate a new feature integrating today's appointments into the user interface.
-- Conduct manual testing by entering and verifying appointments for today and other days.
-- Implement JUnit tests to automatically verify today's appointments against manual entries.
-### Advanced Collection Assertions
-- Use **'assertEquals'** to compare expected appointments against all appointments, expected to fail when non-today appointments are included.
-- Apply **'assertIterableEquals'** for comparing collections of objects, ensuring both equivalence and order are correct.
-### Code Refactoring
-- Isolate and refactor date pattern conversion logic from the addAppointment method into a new method, convertToDateFromString.
-- Consider moving the new method to a utility class for broader use.
-- Re-run tests to ensure no functionality was broken during refactoring.
-### Conclusion and Next Steps
-- Summarize the new assertions and their utility in enhancing testing capabilities.
-- Highlight plans for further structuring tests, including setup and teardown processes.
+
+## Assertions Used
+- **assertNotNull and assertEquals**: Used for basic value comparisons.
+- **assertSame and assertNotSame**: Checks if two references point to the same or different objects, ideal for validating instance uniqueness.
+- **assertTrue and assertFalse**: Used for validating boolean conditions.
+
+## Testing Features
+- **Feature Testing**: Involves testing methods that check for specific conditions, such as the presence of scheduled appointments.
+
+## Assertion Techniques
+- **assertEquals on Collections**: Used for comparing two collections to see if they contain equivalent elements in the same order.
+- **assertIterableEquals**: Compares the contents of different collection types that can be iterated over.
+
+## Workflow Enhancements
+- **Refactoring**: Focus on simplifying methods by extracting repetitive logic into separate methods for better maintainability and readability.
+
 ## 7) Demo: Setting up and Tearing Down Tests
-### Introduction to Test Setup and Teardown
-- Setting up and tearing down are processes done before and after tests run.
-- JUnit 5 supports these processes through specific lifecycle annotations.
-### Lifecycle Annotations Explained
-- **@BeforeAll:** Runs once before all test methods in the class. Must be static unless explicitly overridden.
-- **@BeforeEach:** Runs before each test method.
-- **@AfterEach:** Runs after each test method.
-- **@AfterAll:** Runs once after all test methods are completed. Like @BeforeAll, typically needs to be static.
-### Application Example: Patient Intake System
-- Discuss setup for a sample patient intake system using lifecycle annotations.
-### Implementation Details
-- Example method initAll() runs first, before all tests due to @BeforeAll.
-- init() method runs before each test method because of @BeforeEach annotation.
-- tearDown() method runs after each test method due to @AfterEach.
-- tearDownAll() method, annotated with @AfterAll, runs last after all tests are finished.
-### Practical Usage
-- Common usage is setting up before tests, such as initializing shared resources.
-- Example from ClinicCalendar test:
-  - Previously, each test method created a calendar instance.
-  - Moved calendar instantiation to a @BeforeEach method named init to avoid redundancy.
-  - Converted the calendar from a local variable in each test method to an instance field, accessible across all tests.
-### Enhancements for Visibility
-- Added print statements in each lifecycle method and test method to trace execution flow and order in the console.
-### Considerations for Further Lifecycle Methods
-- Although not required for the calendar test scenario, additional lifecycle methods (@BeforeAll, @AfterEach, and @AfterAll) were implemented to demonstrate their use.
-- Mentioned the aesthetic preference for placing teardown methods at the bottom of the class but noted it's not necessary.
-### Final Testing and Observations
-- Executed tests to confirm the proper order of lifecycle methods and ensure the setup and teardown processes were correctly implemented.
+## Overview
+- JUnit 5 supports setting up and tearing down tests using lifecycle annotations.
+- These operations prepare the testing environment before tests run and clean up after tests.
+
+## Lifecycle Annotations
+- **@BeforeAll**: Executes once before all test methods in the class; usually static.
+- **@BeforeEach**: Executes before each test method.
+- **@AfterEach**: Executes after each test method.
+- **@AfterAll**: Executes once after all test methods in the class have completed; usually static.
+
+## Usage Context
+- Lifecycle methods can be named arbitrarily as long as the correct annotations are used.
+- Commonly, setup activities are needed before test methods to initialize necessary objects or state.
+
+## Practical Application
+- For a patient intake system, repeated instantiation of objects like calendars can be moved from test methods to a setup method.
+- **@BeforeEach** can be used to initialize such objects, reducing redundancy across test methods.
+- Instance fields (e.g., a calendar object) should be used for objects needed across multiple test methods.
+- Cleanup and reset operations are vital for ensuring a clean state for each test, especially when tests have side effects (like altering a database).
+
+## Example Flow
+- Initialize global resources in a method annotated with **@BeforeAll**.
+- For each test, initialize specific resources with **@BeforeEach**, run the test, then clean up with **@AfterEach**.
+- After all tests, release global resources with **@AfterAll**.
+
+## Running Tests
+- Run tests to ensure that the setup and teardown processes do not interfere with the expected outcomes.
+- Utilize console outputs (e.g., `println`) in lifecycle methods to trace the execution flow during test runs.
+
+## Conclusion
+- Setting up and tearing down are essential for managing test environments, especially to handle side effects and ensure reliable test outcomes.
+- Customizing lifecycle methods according to the test needs can greatly enhance the efficiency and clarity of the testing process.
 
